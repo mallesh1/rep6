@@ -93,5 +93,14 @@ resource aws_instance "i2" {
   user_data       = "#!/bin/bash\ncurl -o /usr/local/bin/testapp-autoupdater -u user:tUkArsHqQX4A7Hk7 https://server.com/testapp-autoupdater "
  
  }
+terraform {
+  required_version = ">= 0.12"
+
+  backend "s3" {
+    bucket         = "test"
+    key            = "eu-west-1/terraform.tfstate"
+    region         = "eu-west-1"
+  }
+}
  
  
